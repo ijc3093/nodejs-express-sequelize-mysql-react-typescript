@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const db = require("./app/models");
+const db = require("./backend/models");
 
 
 db.sequelize.sync({ force: true }).then(() => {
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 });
 
 //Routes
-require("./app/routes/turorial.routes")(app);
+require("./backend/routes/turorial.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
